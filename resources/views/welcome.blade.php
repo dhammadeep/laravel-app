@@ -95,6 +95,58 @@
             padding:15px;
         }
 
+        .hero {
+            position: relative;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            width: 90%;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 22px;
+        }
+
+        @media (max-width: 768px) {
+            .hero img {
+                height: 280px;
+            }
+
+            .hero-content h1 {
+                font-size: 26px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+        }
+
     </style>
 
 </head>
@@ -102,16 +154,17 @@
 <body>
 
 
-<div class="header">
+<div class="hero">
+    <img src="{{ asset('images/college.jpg') }}"
+         alt="College Building">
 
-    <h1>
-        कवी कालिदास शासकीय औद्योगिक प्रशिक्षण संस्था, रामटेक
-    </h1>
+    <div class="hero-content">
+        <h1>कवी कालिदास शासकीय औद्योगिक प्रशिक्षण संस्था, रामटेक</h1>
 
-    <p>
-        कौशल्य विकास आणि व्यावसायिक प्रशिक्षणाचे केंद्र
-    </p>
-
+        <p>
+            कौशल्य विकास • गुणवत्तापूर्ण तांत्रिक शिक्षण • उज्ज्वल भविष्य
+        </p>
+    </div>
 </div>
 
 
