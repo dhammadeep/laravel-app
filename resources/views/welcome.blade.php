@@ -101,9 +101,8 @@
 
         .hero img {
             width: 100%;
-            height: 550px;
+            height: 700px;
             object-fit: cover;
-            object-position: top center;
             display: block;
         }
 
