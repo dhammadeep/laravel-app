@@ -103,6 +103,7 @@
             width: 100%;
             height: 550px;
             object-fit: cover;
+            object-position: top center;
             display: block;
         }
 
