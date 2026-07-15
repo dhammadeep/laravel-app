@@ -96,16 +96,14 @@
         }
 
         .hero {
-            width: 100%;
-            height: 420px;
-            overflow: hidden;
+            position: relative;
         }
 
         .hero img {
             width: 100%;
-            height: 100%;
+            height: 550px;
             object-fit: cover;
-            object-position: top center;
+            display: block;
         }
 
         .hero::before {
