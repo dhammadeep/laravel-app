@@ -96,16 +96,14 @@
         }
 
         .hero {
-           background: #f5f5f5;
            text-align: center;
+            overflow: hidden;
         }
 
         .hero img {
-           width: 100%;
-            max-height: 450px;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto;
+          width: auto;
+    max-width: 100%;
+    max-height: 400px;
         }
 
         .hero::before {
