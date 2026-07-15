@@ -96,14 +96,16 @@
         }
 
         .hero {
-            position: relative;
+           background: #f5f5f5;
+           text-align: center;
         }
 
         .hero img {
-            width: 100%;
-            height: 700px;
-            object-fit: cover;
+           width: 100%;
+            max-height: 450px;
+            object-fit: contain;
             display: block;
+            margin: 0 auto;
         }
 
         .hero::before {
