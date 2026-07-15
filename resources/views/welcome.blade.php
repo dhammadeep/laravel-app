@@ -155,7 +155,7 @@
 
 
 <div class="hero">
-    <img src="{{ asset('images/college.jpg') }}"
+    <img src="{{ asset('images/college.jpeg') }}"
          alt="College Building">
 
     <div class="hero-content">
