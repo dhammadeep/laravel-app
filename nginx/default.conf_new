@@ -1,0 +1,86 @@
+# Redirect HTTP to HTTPS
+server {
+
+    listen 80;
+
+    server_name govtitiramtek.net www.govtitiramtek.net;
+
+
+    # Required for Let's Encrypt renewal
+    location /.well-known/acme-challenge/ {
+
+        root /var/www/certbot;
+
+    }
+
+
+    # Redirect all other traffic to HTTPS
+    location / {
+
+        return 301 https://$host$request_uri;
+
+    }
+
+}
+
+
+
+# HTTPS Server
+server {
+
+    listen 443 ssl;
+
+    server_name govtitiramtek.net www.govtitiramtek.net;
+
+
+    root /var/www/public;
+
+    index index.php index.html;
+
+
+    # SSL Certificate
+    ssl_certificate /etc/letsencrypt/live/govtitiramtek.net/fullchain.pem;
+
+    ssl_certificate_key /etc/letsencrypt/live/govtitiramtek.net/privkey.pem;
+
+
+    # SSL Security Settings
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+
+    location / {
+
+        try_files $uri $uri/ /index.php?$query_string;
+
+    }
+
+
+    location ~ \.php$ {
+
+        fastcgi_pass app:9000;
+
+        fastcgi_index index.php;
+
+        include fastcgi_params;
+
+
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+
+        fastcgi_connect_timeout 300;
+
+        fastcgi_send_timeout 300;
+
+        fastcgi_read_timeout 300;
+
+    }
+
+
+    # Deny hidden files
+    location ~ /\. {
+
+        deny all;
+
+    }
+
+}
